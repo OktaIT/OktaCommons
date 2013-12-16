@@ -1,17 +1,17 @@
 {
-    name: "OktaCommons",
-    description: "Common snippets of code that have been abstracted and packaged here, for convenience",
-    author: "Josh Johnson <jjohnson@okta.com>",
-    repository: {
+    "name": "OktaCommons",
+    "description": "Common snippets of code that have been abstracted and packaged here, for convenience",
+    "author": "Josh Johnson <jjohnson@okta.com>",
+    "repository": {
         "type": "git",
         "url": "http://github.com/oktait/OktaCommons.git"
     },
-    bugs: {
+    "bugs": {
         "url": "http://github.com/oktait/OktaCommons/issues"
     },
-    main: "OktaCommons.js",
-    version: "0.1",
-    engines: {
+    "main": "OktaCommons.js",
+    "version": "0.0.1",
+    "engines": {
         "node": "*"
     }
 }
