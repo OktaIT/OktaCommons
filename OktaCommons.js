@@ -118,7 +118,12 @@ exports.symbolizeDynDBResponse = function(data) {
     return out;
 }
 
-
+/**
+ * Pick a random int between the params (inclusive)
+ * @param lowerBound
+ * @param upperBound
+ * @returns {Number}
+ */
 exports.randomInt = function(lowerBound, upperBound) {
     return Math.floor(Math.random() * (upperBound-lowerBound+1) + lowerBound);
 }
