@@ -1,5 +1,5 @@
 {
-    "name": "OktaCommons",
+    "name": "okta-commons",
     "description": "Common snippets of code that have been abstracted and packaged here, for convenience",
     "author": "Josh Johnson <jjohnson@okta.com>",
     "repository": {
