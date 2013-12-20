@@ -10,7 +10,7 @@
         "url": "http://github.com/oktait/OktaCommons/issues"
     },
     "main": "OktaCommons.js",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "engines": {
         "node": "*"
     }
