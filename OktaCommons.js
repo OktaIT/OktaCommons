@@ -3,6 +3,7 @@
  */
 
 exports.StringBuilder = StringBuilder;
+exports.DynamoDBHelpers = require("./DynamoDBHelpers.js");
 
 /**
  * Create a string builder to repeatedly concatenate strings for you
@@ -76,46 +77,6 @@ exports.randomString = function(len, charSet) {
         randomString += charSet.substring(randomPoz, randomPoz + 1);
     }
     return randomString;
-}
-
-/**
- * Symbolize & condense a DynamoDB response object
- * @param data an AWS Response Object from DynamoDB
- * @returns {Object} the response, condensed into the following format:
- *     {
-           tableName: {
-               key1: value1
-               key2: value2
-               keyN: valueN
-           },
-           otherTable: { ... }
-       }
- */
-exports.symbolizeDynDBResponse = function(data) {
-    var out = {};
-    for (thisTable in data.Responses) {
-        var newObj = {}
-        for (i in data.Responses[thisTable]) {
-            var thisResp = data.Responses[tableName][i];
-            for (fieldName in thisResp) {
-                var thisField = thisResp[fieldName];
-                if (thisField.N != undefined) newObj[fieldName] = parseInt(thisField.N);
-                if (thisField.S != undefined) newObj[fieldName] = thisField.S;
-                if (thisField.B != undefined) newObj[fieldName] = new Buffer(thisField.B, "base64");
-                if (thisfield.SS != undefined) newObj[fieldName] = thisField.SS;
-                if (thisField.NS != undefined) {
-                    newObj[fieldName] = [];
-                    for (entryNum in thisField.NS) newObj[fieldName].push(parseInt(thisField.N[entrtyNum]));
-                }
-                if (thisField.BS != undefined) {
-                    newObj[fieldName] = [];
-                    for (entryNum in thisField.BS) newObj[fieldName].push(new Buffer(thisField.BS[entryNum], "base64"));
-                }
-            }
-        }
-        out[thisTable] = newObj;
-    }
-    return out;
 }
 
 /**
